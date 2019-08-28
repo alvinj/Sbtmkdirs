@@ -11,52 +11,36 @@ object Utils {
      */
     def getProjectName(defaultProjectName: String): String = {
 
-        var tmpProjectName = defaultProjectName
-        var count = 1
-        val invalidProjectNameMsg = "Project Name can’t contain blanks."
+        var lastProjectName = defaultProjectName
+        var newProjectName = ""
+        val invalidProjectNameMsg = "Invalid project name (can’t contain blank spaces)."
         val projectNameCantBeBlankMsg = "Project Name can’t be blank."
 
         while (true) {
 
-            promptForProjectName(tmpProjectName)
-            tmpProjectName = readLine()
+            promptForProjectName(lastProjectName)
+            newProjectName = readLine()
 
-            // TODO this is some spaghetti code
-            // only check this the first time through the loop
-            if (count == 1 && defaultProjectName.trim != "") {
-                // already had a project name
-                if (isBlank(tmpProjectName)) {
-                    // didn’t supply a project name, they want to accept the default
-                    return defaultProjectName
+            // two situations: gave us a blank name, or some text
+            if (isBlank(newProjectName)) {
+                if (isValidProjectName(lastProjectName)) {
+                    // didn’t supply a new project name, they want to accept the default
+                    return lastProjectName
                 } else {
-                    // already had a default project name but they gave you a new one
-                    if (isValidProjectName(tmpProjectName)) {
-                        // return the new name
-                        return tmpProjectName
-                    } else {
-                        // they gave you a new name, but it’s not valid
-                        System.err.println(invalidProjectNameMsg)
-                        tmpProjectName = ""
-                    }
+                    // newProjectName is blank and lastProjectName is invalid
+                    System.err.println(projectNameCantBeBlankMsg)
+                    lastProjectName = ""
                 }
             } else {
-                // did not already have a project name
-                if (isBlank(tmpProjectName)) {
-                    // this is bad, the default name and new name are both blank
-                    System.err.println(projectNameCantBeBlankMsg)
-                    tmpProjectName = ""
+                // gave us a new newProjectName
+                if (isValidProjectName(newProjectName)) {
+                    return newProjectName  //name is valid, return it
                 } else {
-                    if (isValidProjectName(tmpProjectName)) {
-                        return tmpProjectName
-                    } else {
-                        // they gave you a new name, but it’s not valid
-                        System.err.println(invalidProjectNameMsg)
-                        tmpProjectName = ""
-                    }
+                    // they gave you a new name, but it’s not valid
+                    System.err.println(invalidProjectNameMsg)
+                    lastProjectName = ""
                 }
             }
-
-            count += 1
 
         }
 
@@ -64,21 +48,20 @@ object Utils {
 
     }
 
-    def isValidProjectName(name: String) = {
-        if (containsBlankSpaces(name)) false else true
+    def isValidProjectName(name: String): Boolean = {
+        if (name.trim == "") {
+            false
+        }
+        else if (containsWhitespace(name)) false else true
     }
 
-    def containsBlankSpaces(s: String): Boolean = s.contains(" ")
+    def containsWhitespace(s: String): Boolean = s.matches(".*\\s.*")
 
     def booleanAsYOrN(b: Boolean) = if (b) "y" else "n"
 
-    def createDir(canonDirName: String): Boolean = {
-        (new File(canonDirName)).mkdir
-    }
+    def createDir(canonDirName: String): Boolean = (new File(canonDirName)).mkdir
 
-    def createDirs(canonDirName: String): Boolean = {
-        (new File(canonDirName)).mkdirs
-    }
+    def createDirs(canonDirName: String): Boolean = (new File(canonDirName)).mkdirs
 
     def isYes(userInput: String, default: Boolean): Boolean =
         if (userInput.trim.equalsIgnoreCase("Y") || userInput.trim.equalsIgnoreCase("yes")) {
@@ -93,7 +76,6 @@ object Utils {
             // note that the user can type in "foo" or anything else
             default
         }
-
 
     def isBlank(s: String): Boolean = s.trim == ""
 

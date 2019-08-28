@@ -3,8 +3,7 @@ package sbtmkdirs
 object BuildSbtData {
 
     def buildDotSbtData(projectName: String) =
-        s"""|
-            |name := "$projectName"
+        s"""|name := "$projectName"
             |version := "0.1"
             |scalaVersion := "2.12.8"
             |
