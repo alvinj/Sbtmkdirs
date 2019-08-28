@@ -77,3 +77,13 @@ I create the application like this:
 
 That last command creates a native executable named *sbtmkdirs*. I then copy that file to my *~/bin* directory so it’s on my PATH.
 
+
+
+## TODO
+
+Brief to-do list:
+
+- I think it would be better if all of the files that are generated could be created from external files (possibly using a template system like StringTemplate or FreeMarker). That way you can easily change those resources without having to recompile everything.
+
+
+
