@@ -13,8 +13,8 @@ object Utils {
 
         var lastProjectName = defaultProjectName
         var newProjectName = ""
-        val invalidProjectNameMsg = "Invalid project name (can’t contain blank spaces)."
-        val projectNameCantBeBlankMsg = "Project Name can’t be blank."
+        val invalidProjectNameMsg = "Invalid project name (can’t contain blank spaces).\n"
+        val projectNameCantBeBlankMsg = "Project Name can’t be blank.\n"
 
         while (true) {
 
