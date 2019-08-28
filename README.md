@@ -2,6 +2,8 @@
 
 This is a Scala version of my 
 [sbtmkdirs shell script](https://alvinalexander.com/sbtmkdirs).
+As its name implies, I use it to create a directory structure
+for Scala/SBT applications.
 
 Since GraalVM lets us create native executables that start up
 immediately, I decided to rewrite this in Scala.
@@ -31,7 +33,7 @@ Create Project? (Y/n): y
 Project created.
 ````
 
-That example creates this directory structure:
+In that example I just hit the `[Enter]` key in response to the first four yes/no questions. This creates this directory structure:
 
 ````
 $ find FooBar
