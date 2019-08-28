@@ -63,7 +63,7 @@ object Sbtmkdirs extends App {
     createDir(projectName + SLASH + "project")
     FileUtils.writeFile(
         projectName + SLASH + "build.sbt",
-        BuildSbtData.buildDotSbtData(projectName)
+        Data.buildDotSbtData(projectName)
     )
 
     // create other dirs as requested
@@ -81,7 +81,7 @@ object Sbtmkdirs extends App {
     if (bCreateGitignoreFile) {
         FileUtils.writeFile(
             projectName + SLASH + ".gitignore",
-            GitignoreData.gitignoreString
+            Data.gitignoreString
         )
     }
 
