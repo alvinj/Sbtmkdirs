@@ -9,6 +9,7 @@ Since GraalVM lets us create native executables that start up
 immediately, I decided to rewrite this in Scala.
 
 
+
 ## Usage
 
 Here’s a quick example of how to use `sbtmkdirs` once it’s compiled:
@@ -48,6 +49,20 @@ FooBar/src/test/scala
 FooBar/src/main
 FooBar/src/main/scala
 ````
+
+### Supply the project name on the command line
+
+You can also supply the project name on the command line when invoking `sbtmkdirs`, so this approach also works:
+
+````
+$ sbtmkdirs Foo
+
+Directory/Project Name (Foo): 
+.
+.
+.
+````
+
 
 
 ## Compiling
