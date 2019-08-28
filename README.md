@@ -52,7 +52,7 @@ FooBar/src/main/scala
 
 ### Supply the project name on the command line
 
-You can also supply the project name on the command line when invoking `sbtmkdirs`, so this approach also works:
+As a new feature (compared to my older shell script), you can also supply the project name on the command line when invoking `sbtmkdirs`:
 
 ````
 $ sbtmkdirs Foo
@@ -75,5 +75,5 @@ I create the application like this:
 4. Run `. 1setup_graal` to set up my environment variables. (You’ll need to change that script for your system.)
 5. Create the executable by running `./2compile_graal.sh`.
 
-That last command creates a native executable named *sbtmkdirs*. I think copy that file to my *~/bin* directory so it’s on my PATH.
+That last command creates a native executable named *sbtmkdirs*. I then copy that file to my *~/bin* directory so it’s on my PATH.
 
