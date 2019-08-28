@@ -77,11 +77,17 @@ object Sbtmkdirs extends App {
         createDirs(projectName + SLASH + "src" + SLASH + "test" + SLASH + "resources")
     }
 
-    // create .gitignore as requested
     if (bCreateGitignoreFile) {
         FileUtils.writeFile(
             projectName + SLASH + ".gitignore",
             Data.gitignoreString
+        )
+    }
+
+    if (bCreateReadmeFile) {
+        FileUtils.writeFile(
+            projectName + SLASH + "README.md",
+            Data.readmeData(projectName)
         )
     }
 

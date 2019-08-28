@@ -28,6 +28,7 @@ object Data {
 
     def readmeData(projectName: String) =
         s"""|# ${projectName}
+            |
         """.stripMargin
 
     def buildDotSbtData(projectName: String) =
