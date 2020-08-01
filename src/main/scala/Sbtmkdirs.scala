@@ -7,13 +7,13 @@ import Utils._
 
 object Sbtmkdirs extends App {
 
-    var projectName = ""
-    var bCreateGitignoreFile = false
-    var bCreateReadmeFile = false
-    var bCreateResourcesDir = false
-    var bCreateJavaDir = false
-    var bCreateScalaTestFile = false
-    var bGoAhead = false
+    final var projectName = ""
+    final var bCreateGitignoreFile = false
+    final var bCreateReadmeFile = false
+    final var bCreateResourcesDir = false
+    final var bCreateJavaDir = false
+    final var bCreateScalaTestFile = false
+    final var bGoAhead = false
 
     if (args.length == 1) {
         projectName = args(0)

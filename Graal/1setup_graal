@@ -1,6 +1,10 @@
 
-# source this file once before beginning with `. 1setup_graal`
-export SCALA_HOME=/Users/al/bin/scala-2.12.8
-export JAVA_HOME=/Users/al/bin/graalvm-ce-19.1.1/Contents/Home
-export PATH=/Users/al/bin/graalvm-ce-19.1.1/Contents/Home/bin:$PATH
+# source this file once before beginning with '. 1setup_graal'
+# or 'source 1setup_graal'.
+
+# make sure SCALA_HOME is set
+# export SCALA_HOME=~/bin/scala-2.13.2
+
+export JAVA_HOME=~/bin/graalvm-ce-java11-20.1.0/Contents/Home/
+export PATH=~/bin/graalvm-ce-java11-20.1.0/Contents/Home/bin:$PATH
 

@@ -1,6 +1,6 @@
 package sbtmkdirs
 
-object Data {
+final object Data {
 
     val gitignoreString = """
         |bin/
@@ -34,10 +34,11 @@ object Data {
     def buildDotSbtData(projectName: String) =
     s"""|name := "$projectName"
         |version := "0.1"
-        |scalaVersion := "2.12.8"
+        |scalaVersion := "2.13.2"
         |
         |libraryDependencies ++= Seq(
-        |    "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+        |    "org.scalactic" %% "scalactic" % "3.2.0",
+        |    "org.scalatest" %% "scalatest" % "3.2.0" % "test"
         |)
         |
         |// see https://tpolecat.github.io/2017/04/25/scalac-flags.html for scalacOptions descriptions

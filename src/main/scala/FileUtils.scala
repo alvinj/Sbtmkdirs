@@ -2,7 +2,7 @@ package sbtmkdirs
 
 import java.io._
 
-object FileUtils {
+final object FileUtils {
 
     val SLASH = System.getProperty("file.separator")
 

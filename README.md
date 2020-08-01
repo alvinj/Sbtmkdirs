@@ -14,10 +14,10 @@ immediately, I decided to rewrite this in Scala.
 
 Here’s a quick example of how to use `sbtmkdirs` once it’s compiled:
 
-````
-$ sbtmkdirs 
+<pre>
+$ <b>sbtmkdirs</b>
 
-Directory/Project Name: FooBar
+Directory/Project Name: <b>FooBar</b>
 Create .gitignore File? (Y/n): 
 Create README.md File? (Y/n): 
 Create ‘resources’ subdirs? (y/N): 
@@ -30,14 +30,14 @@ Create README.md file?:   y
 Create ‘resources’ dirs?: n
 Create ‘java’ dirs?:      n
 -----------------------------------------------
-Create Project? (Y/n): y
+Create Project? (Y/n): <b>y</b>
 Project created.
-````
+</pre>
 
 In that example I just hit the `[Enter]` key in response to the first four yes/no questions. This creates this directory structure:
 
-````
-$ find FooBar
+<pre>
+$ <b>find FooBar</b>
 FooBar
 FooBar/README.md
 FooBar/project
@@ -48,20 +48,20 @@ FooBar/src/test
 FooBar/src/test/scala
 FooBar/src/main
 FooBar/src/main/scala
-````
+</pre>
 
 ### Supply the project name on the command line
 
 As a new feature (compared to my older shell script), you can also supply the project name on the command line when invoking `sbtmkdirs`:
 
-````
-$ sbtmkdirs Foo
+<pre>
+$ <b>sbtmkdirs Foo</b>
 
 Directory/Project Name (Foo): 
 .
 .
 .
-````
+</pre>
 
 
 
@@ -70,7 +70,7 @@ Directory/Project Name (Foo):
 I create the application like this:
 
 1. Create a JAR file with `sbt package`.
-2. That creates a file named *target/scala-2.12/sbtmkdirs_2.12-0.1.jar*.
+2. That creates a file named *target/scala-2.13/sbtmkdirs_2.13-0.2.jar*.
 3. `cd` into the *Graal* directory.
 4. Run `. 1setup_graal` to set up my environment variables. (You’ll need to change that script for your system.)
 5. Create the executable by running `./2compile_graal.sh`.
@@ -83,7 +83,7 @@ That last command creates a native executable named *sbtmkdirs*. I then copy tha
 
 Brief to-do list:
 
-- I think it would be better if all of the files that are generated could be created from external files (possibly using a template system like StringTemplate or FreeMarker). That way you can easily change those resources without having to recompile everything.
+- It would be better if all of the files that are generated could be created from external files (possibly using a template system like StringTemplate or FreeMarker). That way you can easily change those resources without having to recompile everything.
 
 
 
